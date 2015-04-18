@@ -1,0 +1,19 @@
+ru:
+  spree:
+    loyalty_points_balance: "Бонусный балланс"
+    loyalty_points_current_balance: "Текущий балланс"
+    loyalty_points: "Бонусные баллы"
+    loyalty_points_debit: "Бонусные баллы, которые должны быть списаны при возврате"
+    loyalty_points_credit: "Бонусные баллы, которые должны быть начислены при возврате"
+    details: "Подробнее"
+    min_amount_required_to_get_loyalty_points: "Минимальная сумма заказа для получения бонусных баллов (не считая доставки и других сборов)"
+    loyalty_points_awarding_unit: "Колличество баллов, которые будут получены за потраченный рубль"
+    loyalty_points_redeeming_balance: "Минимальный бонусный балланс, при котором возможно оплатить заказ баллами"
+    loyalty_points_conversion_rate: "Колличество рублей, равное одному баллу (при оплате заказа баллами)"
+    loyalty_points_award_period: "Время (в часах) после покупки, после которого пользователь получит баллы"
+    update_loyalty_points: "Изменить бонусный балланс"
+    loyalty_points_earnable: "%{quantity} баллов будет получено с данного заказа"
+    loyalty_points_count:
+      one: "%{count} балл"
+      few: "%{count} балла"
+      many: "%{count} баллов"
