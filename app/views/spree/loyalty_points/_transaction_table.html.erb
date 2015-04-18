@@ -6,7 +6,6 @@
     <tr>
       <th class="loyalty-points-date"><%= Spree.t(:date) %></th>
       <th class="loyalty-points-source"><%= Spree.t(:source) %></th>
-      <th class="loyalty-points-source-id"><%= Spree.t(:source_reference) %></th>
       <th class="loyalty-points-comment"><%= Spree.t(:comment) %></th>
       <th class="loyalty-points-type"><%= Spree.t(:transaction_type) %></th>
       <th class="loyalty-points"><%= Spree.t(:loyalty_points) %></th>
@@ -19,18 +18,18 @@
         <td class="loyalty-points-date"><%= pretty_time(loyalty_point_transaction.updated_at) %></td>
         <% if loyalty_point_transaction.source.present? %>
           <% transaction_source = loyalty_point_transaction.source_type.gsub('Spree::','') -%>
-          <td class="loyalty-points-source"><%= transaction_source %></td>
           <% if transaction_source == "Order" %>
-            <td class="loyalty-points-source-id"><%= link_to loyalty_point_transaction.source.number, order_path(loyalty_point_transaction.source) %></td>
+            <td class="loyalty-points-source">
+              <%= link_to "#{Spree.t(:order)} #{loyalty_point_transaction.source.number}", order_path(loyalty_point_transaction.source) %>
+            </td>
           <% else %>
             <td class="loyalty-points-source-id"><%= loyalty_point_transaction.source_id %></td>
           <% end %>
         <% else %>
           <td class="loyalty-points-source"></td>
-          <td class="loyalty-points-source-id"></td>
         <% end %>
         <td class="loyalty-points-comment"><%= loyalty_point_transaction.comment %></td>
-        <td class="loyalty-points-type"><%= loyalty_point_transaction.transaction_type %></td>
+        <td class="loyalty-points-type"><%= Spree.t(loyalty_point_transaction.transaction_type) %></td>
         <td class="loyalty-points"><%= loyalty_point_transaction.loyalty_points %></td>
         <td class="loyalty-points-balance"><%= loyalty_point_transaction.balance %></td>
       </tr>

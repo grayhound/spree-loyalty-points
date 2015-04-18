@@ -2,9 +2,8 @@
   <%= Spree.t(:loyalty_points) %>
 <% end %>
 
-<% content_for :page_actions do %>
-  <li><%= button_link_to Spree.t(:back_to_users_list), admin_users_path, :icon => 'icon-arrow-left' %></li>
-<% end %>
+<%= render :partial => 'spree/admin/users/sidebar', :locals => { :current => :loyalty_points } %>
+<%= render :partial => 'spree/admin/users/user_page_actions' %>
 
 <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @loyalty_points_transaction.user } %>
 <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @loyalty_points_transaction } %>
@@ -28,13 +27,15 @@
 
       <div class="field four columns">
           <%= f.label :type, Spree.t(:transaction_type) %> <span class="required">*</span><br />
-          <%= f.select :type, options_for_select(Spree::LoyaltyPointsTransaction::CLASS_TO_TRANSACTION_TYPE.invert), {}, :class => 'select2 fullwidth' %>
+          <%= f.select :type, options_for_select(Spree::LoyaltyPointsTransaction::CLASS_TO_TRANSACTION_TYPE.map { |k, v| [Spree.t(v), k] }),
+                       {}, :class => 'select2 fullwidth' %>
           <%= f.error_message_on :type %>
       </div>
 
         <div class="field four columns">
           <%= label_tag nil, Spree.t(:order) %>
-          <%= f.select :source_id, @user.orders.collect {|o| [o.number, o.id]}, {:include_blank => true}, :class => 'select2 fullwidth', :"data-transactions-link" => admin_user_loyalty_points_path(@user) %>
+          <%= f.select :source_id, @user.orders.collect {|o| [o.number, o.id]}, {:include_blank => true},
+                       :class => 'select2 fullwidth',:"data-transactions-link" => admin_user_loyalty_points_path(@user) %>
           <%= f.hidden_field :source_type, { :value => 'Spree::Order' } %>
         </div>
 
@@ -55,7 +56,7 @@
     <div class="form-buttons filter-actions actions" data-hook="buttons">
       <%= button Spree.t('actions.update'), 'icon-ok' %>
       <span class="or"><%= Spree.t(:or) %></span>
-      <%= link_to_with_icon 'icon-remove', Spree.t('actions.cancel'), admin_users_path, :class => 'button' %>
+      <%= link_to_with_icon 'icon-remove', Spree.t('actions.cancel'), admin_user_loyalty_points_path, :class => 'button' %>
     </div>
 
   </fieldset>
