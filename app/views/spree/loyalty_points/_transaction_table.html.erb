@@ -1,7 +1,7 @@
 <%= paginate @loyalty_points_transactions %>
 
 <% if @loyalty_points_transactions.present? %>
-  <table class="loyalty-points-summary">
+  <table class="loyalty-points-summary table table-striped">
     <thead>
     <tr>
       <th class="loyalty-points-date"><%= Spree.t(:date) %></th>
@@ -36,8 +36,6 @@
     <% end %>
     </tbody>
   </table>
-<% else %>
-  <p><%= Spree.t(:you_have_not_earned_any_loyalty_points_yet) %></p>
 <% end %>
 
 <%= paginate @loyalty_points_transactions %>

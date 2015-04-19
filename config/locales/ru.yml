@@ -12,9 +12,15 @@ ru:
     loyalty_points_redeeming_balance: "Минимальный бонусный балланс, при котором возможно оплатить заказ баллами"
     loyalty_points_conversion_rate: "Колличество рублей, равное одному баллу (при оплате заказа баллами)"
     loyalty_points_award_period: "Время (в часах) после покупки, после которого пользователь получит баллы"
-    update_loyalty_points: "Изменить бонусный балланс"
+    update_loyalty_points: "Изменить балланс"
     loyalty_points_earnable: "%{quantity} баллов будет получено с данного заказа"
     loyalty_points_count:
       one: "%{count} балл"
       few: "%{count} балла"
       many: "%{count} баллов"
+
+    comment: Комментарий
+    transaction_type: Тип транзакции
+    updated_balance: Балланс
+    Credit: Начисление
+    Debit: Списание

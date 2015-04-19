@@ -12,7 +12,7 @@ function SelectOptionChange(selectBoxId, containerId, heading) {
                 // Remove table for last order transactions
                 $mainContainer.html("");
                 // Add heading
-                $mainContainer.append($('<h5>' + heading + '</h5>'));
+                $mainContainer.append($('<h4>' + heading + '</h4>'));
                 // Parse response data from ajax
                 that.displayData(responseData, $mainContainer);
             }
@@ -38,7 +38,7 @@ $(document).ready(function() {
         }.bind(this));
     }
     orderSelection.appendTable = function(container) {
-        return $('<table></table>').appendTo(container);
+        return $('<table class="table table-striped"></table><br />').appendTo(container);
     }
     orderSelection.appendHeaderRow = function(container) {
         $tableHead = this.appendTableHeader(container);
