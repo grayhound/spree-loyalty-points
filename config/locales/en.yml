@@ -22,3 +22,4 @@ en:
     loyalty_points_count:
       one: "%{count} point"
       many: "%{count} points"
+      other: "%{count} points"
