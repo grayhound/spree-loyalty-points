@@ -14,13 +14,6 @@ Spree::Payment.class_eval do
   fsm.after_transition :from => [:completed], :to => fsm.states.map(&:name) - [:completed] , :do => :return_loyalty_points, :if => :by_loyalty_points?
 
   private
-
-    def invalidate_old_payments
-      order.payments.with_state('checkout').where("id != ?", self.id).each do |payment|
-        payment.invalidate!
-      end unless by_loyalty_points?
-    end
-
     def notify_paid_order
       if all_payments_completed?
         order.touch :paid_at
