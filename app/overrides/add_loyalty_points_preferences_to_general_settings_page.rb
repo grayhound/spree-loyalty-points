@@ -1,6 +1,6 @@
 Deface::Override.new(:virtual_path => 'spree/admin/general_settings/edit',
   :name => 'add_loyalty_points_preferences_to_general_settings_page',
-  :insert_before => ".form-actions[data-hook='buttons']",
+  :insert_before => "div.row",
   :text => "
     <div class='panel panel-default'>
       <div class='panel-heading'>
